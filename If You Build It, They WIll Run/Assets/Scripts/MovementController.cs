@@ -93,8 +93,6 @@ namespace Movement
                 verticalVelocity -= gravity * Time.deltaTime;
             desiredMoveDirection.y = verticalVelocity;
 
-//TODO: TRY MAKING A NEW PROJECT AND TEST A PRIMITIVE VERSION OF THIS CODE ON A CUBE
-
             if(Input.GetKey(KeyCode.LeftShift))
                 sprintEnable = SPRINT_MULTIPLIER;
             else if(Input.GetKeyUp(KeyCode.LeftShift))
