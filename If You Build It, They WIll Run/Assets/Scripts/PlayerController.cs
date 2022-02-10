@@ -15,11 +15,13 @@ public class PlayerController : MonoBehaviour
     float currentSpeed;
 
     Animator animator;
+    Transform cameraT;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator> ();
+        cameraT = Camera.main.transform;
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
         if(inputDir != Vector2.zero)
         {
-            float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg;
+            float targetRotation = Mathf.Atan2(inputDir.x, inputDir.y) * Mathf.Rad2Deg + cameraT.eulerAngles.y;
             transform.eulerAngles = Vector3.up * Mathf.SmoothDampAngle(transform.eulerAngles.y, targetRotation, ref turnSmoothVelocity, turnSmoothTime);
         }
 
